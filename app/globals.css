@@ -15,16 +15,20 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #eeeeee;
   }
 }
 
 body {
-  background-image: radial-gradient(ellipse 100% 80% at 50% -20%,hsla(210, 100%, 50%, 0.473),transparent),
-  radial-gradient(ellipse 100% 80% at 50% 130%,hsla(220, 100%, 50%, 0.3),transparent);
-  background-color: hsl(0, 0%, 0%);
+  background-color: hsl(100, 100%, 100%);
   min-height: 100vh;
   width: 100%;
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@utility mac {
+  @apply h-3 w-3 rounded-full absolute top-4;
+}
+@utility button{
+  @apply rounded-md border-2 border-slate-700 text-lg font-semibold px-3 py-1 cursor-pointer bg-foreground
 }
