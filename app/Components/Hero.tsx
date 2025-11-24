@@ -2,22 +2,31 @@
 import { useState } from 'react';
 import { Card } from "./Card"
 
+
+
 export const Hero = () => {
-
-    const [input,setInput] = useState('');
-
-    console.log(input);
+    const [input,setInput] = useState("");
+    const [date,setDate] = useState("");
 
     return(
         <div className="min-h-screen w-full flex justify-between">
-            <div className="min-w-100 min-h-full border-r border-slate-500 bg-slate-100 flex justify-center py-10">
+            <div className="min-w-100 min-h-full border-r border-slate-500 bg-slate-100 flex flex-col items-center py-10 gap-14">
                <div className='flex flex-col'>
                 <label htmlFor="lable" className='text-lg font-semibold'>Title</label>
-                 <input type="text" className="bg-foreground w-70 h-10 rounded-md border border-slate-950/20 px-3 font-semibold" onChange={(e) => setInput(e.target.value)} />
+                 <input type="text" className="bg-foreground w-70 h-10 rounded-md border border-slate-950/20 px-3 font-semibold" onChange={(e) => setInput(e.target.value)}/>
+               </div>
+               <div className='flex flex-col'>
+                    <label htmlFor="data" className='text-lg font-semibold'>Date</label>
+                    <input type="date" className='g-foreground w-70 h-10 rounded-md border border-slate-950/20 px-3 font-semibold' 
+                    onChange={(e) => setDate(e.target.value)}/>
                </div>
             </div>
-           <div className="flex items-center justify-center w-full">
-             <Card input={input}/>
+           <div className="flex items-center justify-center w-full"
+           style={{
+            backgroundImage:`radial-gradient(circle at center,#ddd 15%,#fff 0%)`,
+            backgroundSize:"10px 10px"
+           }}>
+             <Card input={input} date={date}/>
            </div>
         </div>
     )
