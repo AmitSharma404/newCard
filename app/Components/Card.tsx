@@ -3,7 +3,8 @@ import { useState, ChangeEvent } from "react";
 import Image from "next/image";
 import html2canvas from "html2canvas-pro";
 import icon from '../badge.svg';
-export const Card = (props) => {
+export const Card = ({data}) => {
+  const {date,input,quote} = data;
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const cardRef = useRef<HTMLDivElement | null>(null);
@@ -61,14 +62,14 @@ export const Card = (props) => {
         </div>
         <div className="w-full px-10 pb-1 overflow-x-hidden flex-col justify-between">
           <h2 className="text-foreground font-extrabold text-md  text-end flex gap-1 tracking-tight py-1 items-center">
-            @{props.input}
+            @{input}
             <Image src={icon} alt="" className="size-4" />
           </h2>
           <p className="text-foreground/80 font-semibold text-sm">
-            {props.quote}
+            {quote}
           </p>
           <p className="text-slate-500 font-semibold text-sm text-end">
-            {props.date}
+            {date}
           </p>
         </div>
       </div>
