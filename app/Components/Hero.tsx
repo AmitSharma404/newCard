@@ -12,10 +12,9 @@ export const Hero = () => {
     const formatted = `${d}.${m}.${y}`;
     setDate(formatted);
   };
-
   return (
     <div className="min-h-screen w-full sm:flex sm:justify-between">
-      <div className="min-w-100 min-h-full border-r border-slate-500 bg-slate-100 flex flex-col items-center py-10 gap-14">
+      <div className="min-w-100 min-h-full border-r border-slate-500 bg-slate-100 flex flex-col items-center py-10 gap-14 ">
         <div className="flex flex-col">
           <label htmlFor="lable" className="text-lg font-semibold">
             Title

@@ -1,12 +1,13 @@
+"use-client"
 import { useEffect, useRef } from "react";
 import { useState, ChangeEvent } from "react";
 import Image from "next/image";
 import html2canvas from "html2canvas-pro";
-import icon from '../badge.svg';
+import { HiBadgeCheck } from "react-icons/hi";
 export const Card = ({data}) => {
   const {date,input,quote} = data;
   const [file, setFile] = useState<File | null>(null);
-  const [preview, setPreview] = useState<string | null>(null);
+  const [preview, setPreview] = useState<string | null>('/img.jpg');
   const cardRef = useRef<HTMLDivElement | null>(null);
   const HandleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || e.target.files.length === 0) {
@@ -52,18 +53,20 @@ export const Card = ({data}) => {
         <span className=" bg-red-500 mac left-4"></span>
         <span className=" bg-yellow-500 mac left-9"></span>
         <span className=" bg-green-600 mac left-14"></span>
-        <div className=" bg-pink-500/10 h-60 w-60 rounded-xl overflow-hidden bg-center">
-          <Image src={preview}
-            className="rounded-xl"
-            alt={'../img.jpg'}
-            width={500}
-            height={500}
+        <div className=" bg-pink-500/10 h-60 w-60 rounded-xl relative overflow-hidden  ">
+          <Image 
+            src={preview}
+            className=""
+            alt=""
+            width={800}
+            height={800}
+            priority
           />
         </div>
         <div className="w-full px-10 pb-1 overflow-x-hidden flex-col justify-between">
           <h2 className="text-foreground font-extrabold text-md  text-end flex gap-1 tracking-tight py-1 items-center">
             @{input}
-            <Image src={icon} alt="" className="size-4" />
+            <HiBadgeCheck fill="#1da1f2" size={18}/>
           </h2>
           <p className="text-foreground/80 font-semibold text-sm">
             {quote}
