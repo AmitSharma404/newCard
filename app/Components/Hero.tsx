@@ -1,12 +1,12 @@
 "use client";
-import { useState } from "react";
+import {ChangeEvent, useState } from "react";
 import { Card } from "./Card";
 export const Hero = () => {
   const [input, setInput] = useState("");
   const [date, setDate] = useState("");
   const [quote, setQuote] = useState("");
 
-  const handleFormat = (e) => {
+  const handleFormat = (e: ChangeEvent<HTMLInputElement>) => {
     const date = e.target.value;
     const [y, m, d] = date.split("-");
     const formatted = `${d}.${m}.${y}`;

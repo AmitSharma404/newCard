@@ -1,23 +1,26 @@
-"use-client"
-import { useEffect, useRef } from "react";
-import { useState, ChangeEvent } from "react";
+"use-client";
+import { useState, ChangeEvent,useRef,useEffect } from "react";
 import Image from "next/image";
 import html2canvas from "html2canvas-pro";
 import { HiBadgeCheck } from "react-icons/hi";
-export const Card = ({data}) => {
+
+interface CardProp {
+  data:{
+    date:string,
+    input:string,
+    quote:string
+  }
+  }
+export const Card = ({data}:CardProp) => {
   const {date,input,quote} = data;
-  const [file, setFile] = useState<File | null>(null);
-  const [preview, setPreview] = useState<string | null>('/img.jpg');
+  const [preview, setPreview] = useState<string>('/img.jpg');
   const cardRef = useRef<HTMLDivElement | null>(null);
   const HandleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || e.target.files.length === 0) {
-      setFile(null);
-      setPreview(null);
+      setPreview('/img.jpg');
       return;
     }
     const file = e.target.files?.[0];
-    setFile(file);
-
     const ObjectURL = URL.createObjectURL(file);
     setPreview(ObjectURL);
   };
