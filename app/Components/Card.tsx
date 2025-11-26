@@ -1,4 +1,4 @@
-"use-client";
+"use client";
 import { useState, ChangeEvent,useRef,useEffect } from "react";
 import Image from "next/image";
 import html2canvas from "html2canvas-pro";
@@ -13,11 +13,11 @@ interface CardProp {
   }
 export const Card = ({data}:CardProp) => {
   const {date,input,quote} = data;
-  const [preview, setPreview] = useState<string>('/img.jpg');
+  const [preview, setPreview] = useState<string>('/nice.png');
   const cardRef = useRef<HTMLDivElement | null>(null);
   const HandleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || e.target.files.length === 0) {
-      setPreview('/img.jpg');
+      setPreview("/nice.png");
       return;
     }
     const file = e.target.files?.[0];
